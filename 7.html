@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7. feladat</title>   
+</head>
+<body>
+    <script>
+        let a, b, c, d, e, y, index = 0;
+        let szoveg = prompt("Adjon meg egy szöveget: ");
+        for (; index < szoveg.length; index++) 
+        {
+            if(isFinite(szoveg.charAt(index)))
+            {
+                y=szoveg.charAt(index-1);
+                a=parseInt(szoveg.charAt(index+0))
+                b=parseInt(szoveg.charAt(index+1))
+                c=parseInt(szoveg.charAt(index+2))
+                d=parseInt(szoveg.charAt(index+3))
+                e=szoveg.charAt(index+4)
+                if(isFinite(b) && isFinite(c) && isFinite(d) && (isNaN(e) || e == ' ' || e == '') && (isNaN(y) || y == ' ' || y == ''))
+                {
+                    index += 4;
+                    document.write('****'+e)
+                }
+                else
+                {
+                    egyeb();
+                }
+            }
+            else
+            {
+                egyeb();
+            }
+        }
+        function egyeb()
+        {
+            document.write(szoveg.charAt(index));    
+        } // Beutiful piece of code
+    </script>
+</body>
+</html>

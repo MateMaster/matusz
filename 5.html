@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Feladat</title>
+</head>
+<body>
+    <script>
+        let ketto;
+        let szamok = [];
+        for (let index = 0; index < 5; index++) 
+        {
+            szamok[index] = parseInt(prompt('Adjon meg egy számot'));
+            //document.write(szamok[index]+", ")
+        }
+        binhex(szamok)
+        function binhex(x)
+        {
+            for (let index = 0; index < x.length; index++) 
+            {    
+                if(isFinite(x[index]))
+                {
+                    ketto = x[index].toString(2);
+                    document.write('<br><i>'+ x[index]+ ': 2-es '+ketto + ' 16-os '+(x[index].toString(16))+'</i>')
+                }
+            }
+        }
+    </script>
+    <style>
+        body
+        {
+            color: blueviolet; /*Neumann Lila :)*/
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</body>
+</html>

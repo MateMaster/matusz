@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. feladat</title>
+</head>
+<body>
+    <script>
+        const dec = prompt ("Adjon meg egy számot");
+        document.write(binaris(parseInt(dec)));
+        function binaris(x)
+        {
+            if(isFinite(x))
+            {
+                let vissza = x.toString(2);
+                return(vissza);
+            }
+        }
+    </script>
+    <style>
+        body
+        {
+            color: blueviolet; /*Neumann Lila :)*/
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</body>
+</html>
