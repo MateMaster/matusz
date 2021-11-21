@@ -2,7 +2,7 @@ body
 {
     background-color: rgb(120, 120, 120);
 }
-table, td
+table, tr
 {
     border-color: aqua;
     border-style: solid;
