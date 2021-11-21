@@ -16,14 +16,15 @@
         <input type="checkbox" id="check"><br>
     </form>
     <script>
+        let szam01, szam02;
         let infocheck1=0, infocheck2=0;
         function numerouno()
         {
-            let szam01 = pasreInt(document.getElementById("szam01").value);
+            szam01 = parseInt(document.getElementById("szam01").value);
         }
         function numerodue() 
         {
-            let szam02 = parseInt(document.getElementById("szam02").value);
+            szam02 = parseInt(document.getElementById("szam02").value);
             document.write(szam02);
         }
         function start()
