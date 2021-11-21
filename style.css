@@ -2,3 +2,8 @@ body
 {
     background-color: rgb(120, 120, 120);
 }
+table
+{
+    border-color: aqua;
+    border-style: solid;
+}
