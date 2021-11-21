@@ -2,7 +2,7 @@ body
 {
     background-color: rgb(120, 120, 120);
 }
-table
+table, td
 {
     border-color: aqua;
     border-style: solid;
@@ -11,6 +11,7 @@ table
 h1
 {
     color: aqua;
+    font-family: Fira Code;
 }
 @font-face {
     font-family: Fira Code;
