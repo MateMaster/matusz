@@ -9,9 +9,9 @@
 <body>
     <form>
         <label>Első szám</label>
-        <input type="number" id="szam01" onchange="numerouno"><br>
+        <input type="number" id="szam01" onchange="numerouno()"><br>
         <label>Második szám</label>
-        <input type="number" id="szam02" onchange="numerodue"><br>
+        <input type="number" id="szam02" onchange="numerodue()"><br>
         <label>Azonosság</label>
         <input type="checkbox" id="check"><br>
     </form>
@@ -25,6 +25,7 @@
         {
             let szam02 = parseInt(document.getElementById("szam02").value);
             document.write(szam02);
+            start();
         }
         function start()
         {    
