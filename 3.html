@@ -7,7 +7,7 @@
     <title>3. feladat</title>
 </head>
 <body>
-    <form>
+    <form onsubmit="start()">
         <label>Első szám</label>
         <input type="number" id="szam01" onchange="numerouno()"><br>
         <label>Második szám</label>
@@ -25,7 +25,6 @@
         {
             let szam02 = parseInt(document.getElementById("szam02").value);
             document.write(szam02);
-            start();
         }
         function start()
         {    
