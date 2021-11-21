@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. feladat</title>
+</head>
+<body>
+    <form>
+        <label>Első szám</label>
+        <input type="number" id="szam01" onchange="numerouno"><br>
+        <label>Második szám</label>
+        <input type="number" id="szam02" onchange="numerodue"><br>
+        <label>Azonosság</label>
+        <input type="checkbox" id="check"><br>
+    </form>
+    <script>
+        let infocheck1=0, infocheck2=0;
+        function numerouno()
+        {
+            let szam01 = pasreInt(document.getElementById("szam01").value);
+        }
+        function numerodue() 
+        {
+            let szam02 = parseInt(document.getElementById("szam02").value);
+            document.write(szam02);
+        }
+        function start()
+        {    
+        let szam1 = [];
+        let szam2 = [];
+        for(i=0; i < szam01.lenght; i++)
+        {
+            szam1[i] = szam01.charAt(i);
+        }
+        for(i=0; i < szam02.lenght; i++)
+        {
+            szam1[i] = szam02.charAt(i);
+        }
+        document.write(szam1);
+        document.write(szam2);
+        }
+    </script>
+    <style>
+        body
+        {
+            color: blueviolet; /*Neumann Lila :)*/
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+            margin: auto;
+        }
+    </style>
+</body>
+</html>
