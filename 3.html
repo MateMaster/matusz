@@ -16,8 +16,9 @@
         <input type="checkbox" id="check"><br>
     </form>
     <script>
+        let szam1 = [];
+        let szam2 = [];
         let szam01, szam02;
-        let infocheck1=0, infocheck2=0;
         function numerouno()
         {
             szam01 = parseInt(document.getElementById("szam01").value);
@@ -25,21 +26,18 @@
         function numerodue() 
         {
             szam02 = parseInt(document.getElementById("szam02").value);
-            document.write(szam02);
         }
         function start()
-        {    
-        let szam1 = [];
-        let szam2 = [];
+        {
         for(i=0; i < szam01.lenght; i++)
         {
             szam1[i] = szam01.charAt(i);
         }
-        for(i=0; i < szam02.lenght; i++)
+        for(j=0; j < szam02.lenght; j++)
         {
             szam1[i] = szam02.charAt(i);
         }
-        document.write(szam1);
+        document.write(szam1+"<br>");
         document.write(szam2);
         }
     </script>
