@@ -10,7 +10,7 @@ table, tr
     border-width: 2px;
     font-size: 20px;
 }
-h1
+h1,h3
 {
     color: aqua;
 }
