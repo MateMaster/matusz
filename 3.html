@@ -16,6 +16,7 @@
         <input type="button" value="Összeshasonlít" onclick="numerouno()">
     </form>
     <p id="kiir"></p>
+    <p id="kiir2"></p>
     <script>
         let szam01, szam02, db=0;
         function numerouno()
@@ -49,8 +50,31 @@
             document.getElementById("kiir").innerHTML=db; 
             if(document.getElementById("check").checked == true)
             {
-                console.log("1")
-                
+                let szam1 = [0,0,0,0,0,0,0,0,0,0];
+                let szam2 = [0,0,0,0,0,0,0,0,0,0];
+                for(let i = 0; i < szam01.toString().length; i++)
+                {
+                    szam1[parseInt(szam01.toString().charAt(i))]++;
+                }
+                console.log(szam1);
+                for(let i = 0; i < szam02.toString().length; i++)
+                {
+                    szam2[parseInt(szam02.toString().charAt(i))]++;
+                }
+                for(let i = 0; i < szam1.length; i++)
+                {
+                    if(szam1[i] > 0 && szam2[i] > 0)
+                    {
+                        if (szam1[i] <= szam2[i]) 
+                        {
+                            document.getElementById("kiir2").innerHTML=szam1[i];    
+                        }
+                        else
+                        {
+                            document.getElementById("kiir2").innerHTML=szam2[i];    
+                        }
+                    }
+                }
             }  
         }
         </script>
