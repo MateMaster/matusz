@@ -2,50 +2,63 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3. feladat</title>
+    <title>3.feladat</title>
 </head>
 <body>
-    <form onsubmit="start()">
+    <form>
         <label>Első szám</label>
-        <input type="number" id="szam01" onchange="numerouno()"><br>
+        <input type="number" id="szam01"><br>
         <label>Második szám</label>
-        <input type="number" id="szam02" onchange="numerodue()"><br>
+        <input type="number" id="szam02"><br>
         <label>Azonosság</label>
-        <input type="checkbox" id="check"><br>
+        <input type="checkbox" id="check" ><br>
+        <input type="button" value="Összeshasonlít" onclick="numerouno()">
     </form>
+    <p id="kiir"></p>
     <script>
-        let szam1 = [];
-        let szam2 = [];
-        let szam01, szam02;
+        let szam01, szam02, db=0;
         function numerouno()
         {
+            db=0;
             szam01 = parseInt(document.getElementById("szam01").value);
-        }
-        function numerodue() 
-        {
             szam02 = parseInt(document.getElementById("szam02").value);
+            if(szam01.toString().length <= szam02.toString().length)
+            {
+                for(let i = 0 ; i < szam01.toString().length; i++)
+                {
+                    
+                    if(szam01.toString().charAt(i) == szam02.toString().charAt(i))
+                    {
+                        db++;
+                    }
+                }
+            }
+            else
+            {
+                for(let i = 0 ; i < szam02.toString().length; i++)
+                {
+                    
+                    if(szam01.toString().charAt(i) == szam02.toString().charAt(i))
+                    {
+                        db++;
+                    }
+                }
+            }
+            console.log(db);
+            document.getElementById("kiir").innerHTML=db; 
+            if(document.getElementById("check").checked == true)
+            {
+                console.log("1")
+                
+            }  
         }
-        function start()
-        {
-        document.write("alam");
-        for(i=0; i < szam01.lenght; i++)
-        {
-            szam1[i] = szam01.charAt(i);
-        }
-        for(j=0; j < szam02.lenght; j++)
-        {
-            szam1[i] = szam02.charAt(i);
-        }
-        document.write(szam1+"<br>");
-        document.write(szam2);
-        }
-    </script>
-    <style>
+        </script>
+
+        <style>
         body
         {
-            color: blueviolet; /*Neumann Lila :)*/
+            color: blueviolet;
             font-weight: bolder;
             font-family: 'Courier New', Courier, monospace;
         }
