@@ -1,7 +1,16 @@
-body
+body,html
 {
     font-family: 'Courier New', Courier, monospace;
-    background-image: url(swhatter.jpg);
+    height: 100%;
+    text-align: center;
+}
+.bg
+{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/53/Vaporwave-4K-Wallpapers.jpg);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 table, tr
 {
@@ -9,6 +18,7 @@ table, tr
     border-style: solid;
     border-width: 2px;
     font-size: 20px;
+    margin: auto;
 }
 h1,h3
 {
