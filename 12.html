@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2. feladat</title>
+    <title>Document</title>
 </head>
 <body>
     <script>
+           var ctx,        
+        x=10,
+        y=20,
+        width=50,
+        height=50,
+        img = new Image();//az új kép paraméterei
+        img.src = "XWing.png";
+ function init() {
+   ctx =document.getElementById("canvas").getContext('2d');
+   draw();
+   setInterval(move,1000); //1 másodpercenként mozdul a hal
+   //initial drawing
+ }
+ function draw(){
+    ctx.drawImage(img,x,y,width,height); //a hal megjelenítése
+ }
 
+ function move(){
+   ctx.clearRect(x,y,width,height); // vászon törlése
+   x+=20; //20 pixellel arrébb megy a hal
+   draw(); //a hal megjelenítése
+ }
+
+ </script>
+ </head>
+ <body onLoad="init();">
+ <canvas id="canvas" width="1200" height="1200">
+ </canvas>
+ </body>
+ </html>s
     </script>
-    <style>
-        body
-        {
-            background-image: url(star-wars-backgrounds-25.jpg);
-        }
-    </style>
 </body>
 </html>

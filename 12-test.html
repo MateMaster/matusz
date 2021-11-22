@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. feladat</title>
+</head>
+<body>
+    <h1>Képméretezés, vágás</h1>
+    <canvas id="myCanvas" width="800" height="800" ></canvas>
+    <form>
+    <input type="button" value="Eredeti" onclick="contextReset()" />
+    <input type="button" value="Kicsinyítés" onclick="contextZoom()" />
+    <input type="button" value="Vágás" onclick="contextCrop()" />
+    <input type="button" value="Tükrözés" onclick="contextMirror()" />
+    <input type="button" value="Elforgatás" onclick="contextRotate()" />
+    <script>
+        var canvas=document.getElementById('myCanvas');
+        var context=canvas.getContext('2d');
+        var width = 100;
+        var height = 75;
+        var imageObj = new Image();
+        imageObj.src = './ARC-170.png';
+        imageObj.onload = function() 
+        {
+        context.drawImage(imageObj, 0, 0);
+        }
+
+        function contextReset() {
+     canvas.width = canvas.width;
+     context.drawImage(imageObj, 0, 0);
+   }
+   
+   // === Kép kicsinyítése
+   function contextZoom() {
+     context.drawImage(imageObj, 0, 305, width, height);
+   }
+   
+   // === Kép vágása
+   function contextCrop() {
+     var sourceX = 200;
+     var sourceY = 125;
+     var sourceWidth = width;
+     var sourceHeight = height;
+     var destWidth = sourceWidth;
+     var destHeight = sourceHeight;
+     var destX = 105;
+     var destY = 305;
+     context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+   }
+   
+   function contextMirror() {
+     context.translate(800, 0);
+     context.scale(-1, 1);
+     context.drawImage(imageObj, 0, 0);
+   }
+   
+   // Canvas forgatása
+   function contextRotate() {
+   // Elforgatás előtti canvas tartalmának törlése
+   context.clearRect ( 0 , 0 , canvas.width , canvas.height );
+   // Elforgatás 
+   context.translate(800, 0);
+   context.rotate(90*Math.PI/180);
+   context.drawImage(imageObj, 0, 0);
+   }
+    </script>
+</body>
+</html>
