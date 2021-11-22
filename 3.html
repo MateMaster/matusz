@@ -16,7 +16,7 @@
         <input type="button" value="Összeshasonlít" onclick="numerouno()">
     </form>
     <p id="kiir">Hasonlóság: </p>
-    <p id="kiir2"></p>
+    <p id="kiir2">Azonos számjegyek száma: </p>
     <script>
         let szam01, szam02, db=0;
         function numerouno()
@@ -46,7 +46,7 @@
                     }
                 }
             }
-            console.log(db);
+            /*console.log(db);*/
             document.getElementById("kiir").innerHTML=("Hasonlóság: "+db); 
             if(document.getElementById("check").checked == true)
             {
@@ -57,7 +57,7 @@
                 {
                     szam1[parseInt(szam01.toString().charAt(i))]++;
                 }
-                console.log(szam1);
+                /*console.log(szam1);*/
                 for(let i = 0; i < szam02.toString().length; i++)
                 {
                     szam2[parseInt(szam02.toString().charAt(i))]++;
@@ -80,7 +80,8 @@
                         }
                     }
                 }
-                console.log("Veges "+ veges+" "+veges.reduce((a,b) => a + b, 0))
+                /*console.log("Veges "+ veges+" "+veges.reduce((a,b) => a + b, 0))*/
+                document.getElementById("kiir2").innerHTML=("Azonos számjegyek száma: "+veges.reduce((a,b) => a + b, 0));đđ
             }  
         }
         </script>
