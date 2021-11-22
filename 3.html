@@ -91,8 +91,12 @@
                     }
                 }
                 /*console.log("Veges "+ veges+" "+veges.reduce((a,b) => a + b, 0))*/
-                document.getElementById("kiir2").innerHTML=("Azonos számjegyek száma: "+veges.reduce((a,b) => a + b, 0));đđ
-            }  
+                document.getElementById("kiir2").innerHTML=("Azonos számjegyek száma: "+veges.reduce((a,b) => a + b, 0));
+            }
+            else
+            {
+                document.getElementById("kiir2").innerHTML=("Azonos számjegyek száma: nem kérte ezt az információt");
+            }
         }
         </script>
 
