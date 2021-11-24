@@ -1,79 +1,15 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
-  <title>Animáció</title>
   <meta charset="UTF-8">
-  <meta name="author" content="WebGraf">
-  <style>
-    #myCanvas {
-    background-image: url('swhatter.jpg');
-    background-repeat:no-repeat;
-    border: 1px solid silver;  
-    }
-  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. Feladat</title>
 </head>
 <body>
- <h1>Animáció</h1>
- <!-- A vászon kijelölése, méretezése -->
- <canvas id="myCanvas" width="480" height="360" >
-   Your browser does not support the HTML5 canvas tag.</canvas>
-   
- <form>
-   Kép:
- <input type="button" value="ZF logó" onclick="changeImageObj('ARC-170.png')" />
- <input type="button" value="SzinvaNet logó" onclick="changeImageObj('XWing.png')" />
-   Háttérkép:
- <input type="button" value="ZF épület" onclick="changeBgImage('url(\'swhatter\')')" />
- <input type="button" value="Szinva Net épület" onclick="changeBgImage('url(\'ARC-170.png\')')" />
- </form>
-   
- <script>
-   // === Globális változók deklarálása
-   var canvas=document.getElementById('myCanvas');
-   var context=canvas.getContext('2d');
- // Space Shuttle mozgatás segédváltozói
-   var shWidth = 65;
-   var shHeight = 65;
-   // Vigyázz, az shLeft és shTop ne induljon nulláról, mert nem féri ki a mozgó alakzat!
-   var shLeft = Math.floor((Math.random() * 100) + 1); ;
-   var shTop = Math.floor((Math.random() * 100) + 1); ;
-   var step= 2;
-   var xWay = true;
-   var yWay = true;
-   
-   // === Képbetöltés, vászonra írás
-   var imageObj = new Image();
-   imageObj.src = 'milleniumfalcon.png';
-   imageObj.onload = function() {
-     context.drawImage(imageObj, shLeft, shTop);
-   };
-   // === Képcsere
-   function changeImageObj(imgsrc){
-     imageObj.src = imgsrc;
-     context.drawImage(imageObj, shLeft, shTop);
-   }
-   function changeBgImage(bgimgsrc){
-     document.getElementById("myCanvas").style.backgroundImage=bgimgsrc;
-   }
-   
-   // === Időzítés bekapcsolása
-   var myVar=setInterval(function(){walker()},100);
-   
-   function walker(){
-   // A logók irányváltásának kezelése
-   if (shLeft+shWidth>context.canvas.width) {xWay = !xWay;}
-   else if (shLeft<1) {xWay=!xWay;}
-   if (shTop+shHeight>context.canvas.height) {yWay = !yWay;}
-   else if (shTop<1) {yWay=!yWay;}
-   
-   // A logó eltűnik a régi pozicióról
-   context.clearRect(shLeft,shTop,shWidth,shHeight);
-   
-   // A logó megjelenik az új pozición
-   shLeft=xWay ? shLeft+step : shLeft-step;
-   shTop=yWay ? shTop+step : shTop-step;
-   context.drawImage(imageObj, shLeft, shTop);
-   };
- </script>
- </body>
- </html>
+  <canvas width="500px" height="750px" id="myCanvas"></canvas>
+  <script>
+    
+  </script>
+</body>
+</html>
