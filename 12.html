@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2. Feladat</title>
 </head>
-<body onload="kezdet1, kezdet2, kezdet3">
-  <canvas width="750px" height="450px" id="myCanvas"></canvas> 
+<body onload="kezdet1(), kezdet2(), kezdet3()">
+  <canvas width="700px" height="400px" id="myCanvas"></canvas> 
   <script>
     var ctx;
     var x1 = 10, x2 = 10, x3 = 10;
@@ -23,7 +23,8 @@
     {
       ctx =document.getElementById("myCanvas").getContext('2d');
       draw1();
-      setInterval(move1,1000);
+      setInterval(move1,<i class="fa fa-500px" aria-hidden="true"></i>00);
+      setInterval(ellenoriz,500);
     }
     function draw1()
     {
@@ -32,7 +33,8 @@
     function move1()
     {
       ctx.clearRect(x1,y1,width,height);
-      x1+=20;
+      x1+=Math.floor(Math.random()*16)+10;
+      console.log(x1)
       draw1();
     }
 
@@ -41,7 +43,8 @@
     {
       ctx = document.getElementById("myCanvas").getContext('2d');
       draw2();
-      setInterval(move2,1000);
+      setInterval(move2,500);
+      setInterval(ellenoriz,500);
     }
     function draw2()
     {
@@ -49,7 +52,7 @@
     }
     function move2(){
       ctx.clearRect(x2,y2,width,height);
-      x2+=20;
+      x2+=Math.floor(Math.random()*16)+10;
       draw2();
     }
 
@@ -58,7 +61,8 @@
     {
       ctx = document.getElementById("myCanvas").getContext('2d');
       draw3();
-      setInterval(move3,1000);
+      setInterval(move3,500);
+      setInterval(ellenoriz,500);
     }
     function draw3()
     {
@@ -66,8 +70,22 @@
     }
     function move3(){
       ctx.clearRect(x3,y3,width,height);
-      x3+=20;
+      x3+=Math.floor(Math.random()*16)+10;
       draw3();
+    }
+    function ellenoriz() {
+    if(x1 >= 700)
+    {
+      console.log("Az X-szárnyú nyert")
+    }
+    else if(x2 >= 700)
+    {
+      console.log("Az ARC-170 nyert")
+    }
+    else if(x3 >= 700)
+    {
+      console.log("A Sólyom nyert")
+    }
     }
   </script>
   <style>
