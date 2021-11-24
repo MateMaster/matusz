@@ -1,9 +1,93 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <title>Animáció</title>
   <meta charset="UTF-8">
-  <meta name="author" content="WebGraf">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. Feladat</title>
+</head>
+<body onload="kezdet1(), kezdet2(), kezdet3()">
+  <canvas width="700px" height="400px" id="myCanvas"></canvas> 
+  <script>
+    var ctx;
+    var x1 = 10, x2 = 10, x3 = 10;
+    var y1 = 20, y2 = 100, y3 = 190;
+    var  width=50, height=50;
+    var kep = new Image();
+    kep.src = 'XWing.png';
+    var kep2 = new Image();
+    kep2.src = 'ARC-170.png'
+    var kep3 = new Image();
+    kep3.src = 'milleniumfalcon.png';
+    function kezdet1() 
+    {
+      ctx =document.getElementById("myCanvas").getContext('2d');
+      draw1();
+      setInterval(move1,<i class="fa fa-500px" aria-hidden="true"></i>00);
+      setInterval(ellenoriz,500);
+    }
+    function draw1()
+    {
+      ctx.drawImage(kep,x1,y1,width,height);
+    }
+    function move1()
+    {
+      ctx.clearRect(x1,y1,width,height);
+      x1+=Math.floor(Math.random()*16)+10;
+      console.log(x1)
+      draw1();
+    }
+
+
+    function kezdet2() 
+    {
+      ctx = document.getElementById("myCanvas").getContext('2d');
+      draw2();
+      setInterval(move2,500);
+      setInterval(ellenoriz,500);
+    }
+    function draw2()
+    {
+      ctx.drawImage(kep2,x2,y2,width,height);
+    }
+    function move2(){
+      ctx.clearRect(x2,y2,width,height);
+      x2+=Math.floor(Math.random()*16)+10;
+      draw2();
+    }
+
+
+    function kezdet3() 
+    {
+      ctx = document.getElementById("myCanvas").getContext('2d');
+      draw3();
+      setInterval(move3,500);
+      setInterval(ellenoriz,500);
+    }
+    function draw3()
+    {
+      ctx.drawImage(kep3,x3,y3,width,height);
+    }
+    function move3(){
+      ctx.clearRect(x3,y3,width,height);
+      x3+=Math.floor(Math.random()*16)+10;
+      draw3();
+    }
+    function ellenoriz() {
+    if(x1 >= 700)
+    {
+      console.log("Az X-szárnyú nyert")
+    }
+    else if(x2 >= 700)
+    {
+      console.log("Az ARC-170 nyert")
+    }
+    else if(x3 >= 700)
+    {
+      console.log("A Sólyom nyert")
+    }
+    }
+  </script>
   <style>
     #myCanvas {
     background-image: url('swhatter.jpg');
@@ -11,69 +95,5 @@
     border: 1px solid silver;  
     }
   </style>
-</head>
-<body>
- <h1>Animáció</h1>
- <!-- A vászon kijelölése, méretezése -->
- <canvas id="myCanvas" width="480" height="360" >
-   Your browser does not support the HTML5 canvas tag.</canvas>
-   
- <form>
-   Kép:
- <input type="button" value="ZF logó" onclick="changeImageObj('ARC-170.png')" />
- <input type="button" value="SzinvaNet logó" onclick="changeImageObj('XWing.png')" />
-   Háttérkép:
- <input type="button" value="ZF épület" onclick="changeBgImage('url(\'swhatter\')')" />
- <input type="button" value="Szinva Net épület" onclick="changeBgImage('url(\'ARC-170.png\')')" />
- </form>
-   
- <script>
-   // === Globális változók deklarálása
-   var canvas=document.getElementById('myCanvas');
-   var context=canvas.getContext('2d');
- // Space Shuttle mozgatás segédváltozói
-   var shWidth = 65;
-   var shHeight = 65;
-   // Vigyázz, az shLeft és shTop ne induljon nulláról, mert nem féri ki a mozgó alakzat!
-   var shLeft = Math.floor((Math.random() * 100) + 1); ;
-   var shTop = Math.floor((Math.random() * 100) + 1); ;
-   var step= 2;
-   var xWay = true;
-   var yWay = true;
-   
-   // === Képbetöltés, vászonra írás
-   var imageObj = new Image();
-   imageObj.src = 'milleniumfalcon.png';
-   imageObj.onload = function() {
-     context.drawImage(imageObj, shLeft, shTop);
-   };
-   // === Képcsere
-   function changeImageObj(imgsrc){
-     imageObj.src = imgsrc;
-     context.drawImage(imageObj, shLeft, shTop);
-   }
-   function changeBgImage(bgimgsrc){
-     document.getElementById("myCanvas").style.backgroundImage=bgimgsrc;
-   }
-   
-   // === Időzítés bekapcsolása
-   var myVar=setInterval(function(){walker()},100);
-   
-   function walker(){
-   // A logók irányváltásának kezelése
-   if (shLeft+shWidth>context.canvas.width) {xWay = !xWay;}
-   else if (shLeft<1) {xWay=!xWay;}
-   if (shTop+shHeight>context.canvas.height) {yWay = !yWay;}
-   else if (shTop<1) {yWay=!yWay;}
-   
-   // A logó eltűnik a régi pozicióról
-   context.clearRect(shLeft,shTop,shWidth,shHeight);
-   
-   // A logó megjelenik az új pozición
-   shLeft=xWay ? shLeft+step : shLeft-step;
-   shTop=yWay ? shTop+step : shTop-step;
-   context.drawImage(imageObj, shLeft, shTop);
-   };
- </script>
- </body>
- </html>
+</body>
+</html>
