@@ -8,6 +8,9 @@
 </head>
 <body onload="kezdet1(), kezdet2(), kezdet3()">
   <canvas width="700px" height="400px" id="myCanvas"></canvas> 
+  <button>X Szárnyú</button>
+  <button>ARC-170</button>
+  <button>Sólyom</button>
   <script>
     var ctx;
     var x1 = 10, x2 = 10, x3 = 10;
@@ -23,7 +26,7 @@
     {
       ctx =document.getElementById("myCanvas").getContext('2d');
       draw1();
-      setInterval(move1,<i class="fa fa-500px" aria-hidden="true"></i>00);
+      setInterval(move1, 500);
       setInterval(ellenoriz,500);
     }
     function draw1()
@@ -93,6 +96,10 @@
     background-image: url('swhatter.jpg');
     background-repeat:no-repeat;
     border: 1px solid silver;  
+    }
+    body
+    {
+      background-color: lightseagreen;
     }
   </style>
 </body>
