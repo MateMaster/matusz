@@ -6,20 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2. Feladat</title>
 </head>
-<body onload="kezdet1(), kezdet2(), kezdet3()">
-  <canvas width="1200px" height="1200px" id="myCanvas"></canvas> 
+<body onload="kezdet1, kezdet2, kezdet3">
+  <canvas width="750px" height="450px" id="myCanvas"></canvas> 
   <script>
-    var ctx, ctx2, ctx3;
+    var ctx;
     var x1 = 10, x2 = 10, x3 = 10;
     var y1 = 20, y2 = 100, y3 = 190;
     var  width=50, height=50;
     var kep = new Image();
-    kep.src = 'XWing.png'
+    kep.src = 'XWing.png';
     var kep2 = new Image();
     kep2.src = 'ARC-170.png'
     var kep3 = new Image();
     kep3.src = 'milleniumfalcon.png';
-    function kezdet1 () 
+    function kezdet1() 
     {
       ctx =document.getElementById("myCanvas").getContext('2d');
       draw1();
@@ -29,45 +29,53 @@
     {
       ctx.drawImage(kep,x1,y1,width,height);
     }
-    function move1(){
+    function move1()
+    {
       ctx.clearRect(x1,y1,width,height);
       x1+=20;
       draw1();
     }
 
 
-    function kezdet2 () 
+    function kezdet2() 
     {
-      ctx2 = document.getElementById("myCanvas").getContext('2d');
+      ctx = document.getElementById("myCanvas").getContext('2d');
       draw2();
       setInterval(move2,1000);
     }
     function draw2()
     {
-      ctx2.drawImage(kep2,x2,y2,width,height);
+      ctx.drawImage(kep2,x2,y2,width,height);
     }
     function move2(){
-      ctx2.clearRect(x2,y2,width,height);
+      ctx.clearRect(x2,y2,width,height);
       x2+=20;
       draw2();
     }
 
 
-    function kezdet3 () 
+    function kezdet3() 
     {
-      ctx3 = document.getElementById("myCanvas").getContext('2d');
+      ctx = document.getElementById("myCanvas").getContext('2d');
       draw3();
       setInterval(move3,1000);
     }
     function draw3()
     {
-      ctx3.drawImage(kep3,x3,y3,width,height);
+      ctx.drawImage(kep3,x3,y3,width,height);
     }
     function move3(){
-      ctx3.clearRect(x3,y3,width,height);
+      ctx.clearRect(x3,y3,width,height);
       x3+=20;
       draw3();
     }
   </script>
+  <style>
+    #myCanvas {
+    background-image: url('swhatter.jpg');
+    background-repeat:no-repeat;
+    border: 1px solid silver;  
+    }
+  </style>
 </body>
 </html>
