@@ -120,14 +120,15 @@
     }
     function ellenoriz()
     {
-    if(x1 >= 650)
-    {
-      console.log(ARC)
+      reset();
       if(xwing == 1)
+      {
+      console.log(ARC)
+      if(x1 >= 650)
       {
         document.getElementById("kiir").innerHTML += "Gratulálunk! Ön nyert!";
       }
-      else if(ARC == 1)
+      else if(x2 >= 650)
       {
         document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az ARC-170 nyert!'
       }
@@ -135,15 +136,14 @@
       {
         document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az Ezer Éves Sólyom nyert!'
       }
-      reset();
-    }
-    else if(x2 >= 650)
-    {
-      if(ARC == 1)
+      }
+      else if(ARC == 1)
+      {
+      if(x2 >= 650)
       {
         document.getElementById("kiir").innerHTML += "Gratulálunk! Ön nyert!";
       }
-      else if(xwing == 1)
+      else if(x2 >= 650)
       {
         document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az X-Szárnyú vadász nyert!'
       }
@@ -151,15 +151,14 @@
       {
       document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az Ezer Éves Sólyom nyert!'
       }
-      reset();
-    }
-    else if(x3 >= 650)
-    {
-      if(falcon == 1)
+      }
+      else if(falcon == 1)
+      {
+      if(x3 >= 650)
       {
         document.getElementById("kiir").innerHTML += "Gratulálunk! Ön nyert!";
       }
-      else if(xwing == 1)
+      else if(x1 >= 650)
       {
         document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az X-Szárnyú vadász nyert!'
       }
@@ -167,8 +166,7 @@
       {
         document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az ARC-170 nyert!'
       }
-      reset();
-    }
+      }
     }
     function reset()
     {
