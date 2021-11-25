@@ -6,15 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2. Feladat</title>
 </head>
-<body onload="kezdet1(), kezdet2(), kezdet3()">
-  <canvas width="700px" height="400px" id="myCanvas"></canvas> 
-  <button>X Szárnyú</button>
-  <button>ARC-170</button>
-  <button>Sólyom</button>
+<body>
+  <table>
+  <tr>
+    <td rowspan="4"><canvas width="700px" height="350px" id="myCanvas"></canvas></tr>
+  </tr>
+  <tr>
+      <td><button onclick="start1()">X Szárnyú vadász</button></td>
+  </tr>
+  <tr>
+      <td><button onclick="start2()">ARC-170 csillagharcos</button></td>
+  </tr>
+  <tr>
+      <td><button onclick="start3()">Ezer Éves Sólyom</button></td>
+  </tr>
+  <tr>
+    <td rowspan="4"><p id="kiir"></p></td>
+  </tr>
+  </table>
   <script>
     var ctx;
+    var move11, move12, move13, ellen1, ellen2, ellen3;
+    var xwing = 0, ARC = 0, falcon = 0;
     var x1 = 10, x2 = 10, x3 = 10;
-    var y1 = 20, y2 = 100, y3 = 190;
+    var y1 = 25, y2 = 150, y3 = 275;
     var  width=50, height=50;
     var kep = new Image();
     kep.src = 'XWing.png';
@@ -22,12 +37,38 @@
     kep2.src = 'ARC-170.png'
     var kep3 = new Image();
     kep3.src = 'milleniumfalcon.png';
+    function start1() 
+    {
+     console.log('Ön az X-szárnyú vadászra tette a tétjét. Sok szerencsét!');
+     kezdet1()
+     kezdet2()
+     kezdet3();
+     xwing++;
+     document.getElementById("kiir").innerHTML += "Ön az X-szárnyú vadászra tette a tétjét. Sok szerencsét!<br>";
+    }
+    function start2() 
+    {
+     console.log('Ön az ARC-170 - Advanced Recon Fighterre tette a tétjét. Sok szerencsét!');
+     kezdet1()
+     kezdet2()
+     kezdet3();
+     ARC++;
+     document.getElementById("kiir").innerHTML += 'Ön az ARC-170-re tette a tétjét. Sok szerencsét!<br>';
+    }function start3() 
+    {
+     console.log('Ön az Ezer Éves Sólyomra tette a tétjét. Sok szerencsét!');
+     kezdet1()
+     kezdet2()
+     kezdet3();
+     falcon++;
+     document.getElementById("kiir").innerHTML += 'Ön az Ezer Éves Sólyomra tette a tétjét. Sok szerencsét!<br>';
+    }
     function kezdet1() 
     {
       ctx =document.getElementById("myCanvas").getContext('2d');
       draw1();
-      setInterval(move1, 500);
-      setInterval(ellenoriz,500);
+      move11 = setInterval(move1, 500);
+      ellen1 = setInterval(ellenoriz,500);
     }
     function draw1()
     {
@@ -46,8 +87,8 @@
     {
       ctx = document.getElementById("myCanvas").getContext('2d');
       draw2();
-      setInterval(move2,500);
-      setInterval(ellenoriz,500);
+      move12 =  setInterval(move2,500);
+      ellen2 = setInterval(ellenoriz,500);
     }
     function draw2()
     {
@@ -55,7 +96,7 @@
     }
     function move2(){
       ctx.clearRect(x2,y2,width,height);
-      x2+=Math.floor(Math.random()*16)+10;
+      x2+=Math.floor(Math.random()*20)+10;
       draw2();
     }
 
@@ -64,31 +105,82 @@
     {
       ctx = document.getElementById("myCanvas").getContext('2d');
       draw3();
-      setInterval(move3,500);
-      setInterval(ellenoriz,500);
+      move13 = setInterval(move3,500);
+      ellen3 = setInterval(ellenoriz,500);
     }
     function draw3()
     {
       ctx.drawImage(kep3,x3,y3,width,height);
     }
-    function move3(){
+    function move3()
+    {
       ctx.clearRect(x3,y3,width,height);
       x3+=Math.floor(Math.random()*16)+10;
       draw3();
     }
-    function ellenoriz() {
-    if(x1 >= 700)
+    function ellenoriz()
     {
-      console.log("Az X-szárnyú nyert")
-    }
-    else if(x2 >= 700)
+    if(x1 >= 650)
     {
-      console.log("Az ARC-170 nyert")
+      console.log(ARC)
+      if(xwing == 1)
+      {
+        document.getElementById("kiir").innerHTML += "Gratulálunk! Ön nyert!";
+      }
+      else if(ARC == 1)
+      {
+        document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az ARC-170 nyert!'
+      }
+      else
+      {
+        document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az Ezer Éves Sólyom nyert!'
+      }
+      reset();
     }
-    else if(x3 >= 700)
+    else if(x2 >= 650)
     {
-      console.log("A Sólyom nyert")
+      if(ARC == 1)
+      {
+        document.getElementById("kiir").innerHTML += "Gratulálunk! Ön nyert!";
+      }
+      else if(xwing == 1)
+      {
+        document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az X-Szárnyú vadász nyert!'
+      }
+      else
+      {
+      document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az Ezer Éves Sólyom nyert!'
+      }
+      reset();
     }
+    else if(x3 >= 650)
+    {
+      if(falcon == 1)
+      {
+        document.getElementById("kiir").innerHTML += "Gratulálunk! Ön nyert!";
+      }
+      else if(xwing == 1)
+      {
+        document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az X-Szárnyú vadász nyert!'
+      }
+      else
+      {
+        document.getElementById("kiir").innerHTML += 'Sajnáljuk, Ön most nem nyert. Kéjük próbálja újra.<br>Az ARC-170 nyert!'
+      }
+      reset();
+    }
+    }
+    function reset()
+    {
+      clearInterval(move11);
+      clearInterval(move12);
+      clearInterval(move13);
+      clearInterval(ellen1);
+      clearInterval(ellen2);
+      clearInterval(ellen3);
+      xwing = 0
+      ARC = 0
+      falcon = 0;
     }
   </script>
   <style>
@@ -99,7 +191,9 @@
     }
     body
     {
-      background-color: lightseagreen;
+      background-color: black;
+      color: yellow;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
   </style>
 </body>
